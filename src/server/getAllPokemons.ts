@@ -1,9 +1,11 @@
 import axios from "axios";
 
-export async function getAllPokemons() {
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/pokemon?offset=0&limit=20`
-  );
+export async function getAllPokemons(pageNo: any) {
+  const pageConvert = parseInt(pageNo) === 1 ? 0 : parseInt(pageNo) * 20;
+  const responseString = `${process.env.NEXT_PUBLIC_API_URL}/pokemon?offset=${pageConvert}&limit=20`;
+  console.log(responseString);
+
+  const response = await axios.get(responseString);
 
   const results = await Promise.all(
     response?.data?.results?.map(async (item: any) => {
