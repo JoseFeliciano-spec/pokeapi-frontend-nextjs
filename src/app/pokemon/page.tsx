@@ -10,6 +10,66 @@ import Chips from "@/components/ui/Chips";
 import { getSearchPokemon } from "@/server/getSearchPokemon";
 import { getNamesById } from "@/lib/getNamePokemon";
 
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const name = searchParams?.name;
+  const type = searchParams?.type;
+
+  try {
+    const pokemon = await getDetailsPokemon(name);
+    const sprites = pokemon?.sprites?.other["official-artwork"];
+
+    if (!pokemon) {
+      return {
+        title: "Pokémon no encontrado",
+        description:
+          "No se pudo cargar la información del Pokémon. Por favor, intenta nuevamente.",
+      };
+    }
+
+    return {
+      title: `${toCapitalize(pokemon.name)} (#${pokemon.id}) | Pokedex`,
+      description: `Detalles del Pokémon ${toCapitalize(
+        pokemon.name
+      )}: tipo, habilidades, altura, peso, y más.`,
+      openGraph: {
+        title: `${toCapitalize(pokemon.name)} (#${pokemon.id}) | Pokedex`,
+        description: `Descubre todo sobre ${toCapitalize(
+          pokemon.name
+        )}. Aprende sobre sus habilidades, estadísticas y más.`,
+        images: [
+          {
+            url:
+              type === "shiny" ? sprites?.front_shiny : sprites?.front_default,
+            width: 800,
+            height: 800,
+            alt: `${toCapitalize(pokemon.name)} Sprite`,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${toCapitalize(pokemon.name)} (#${pokemon.id}) | Pokedex`,
+        description: `Detalles y curiosidades de ${toCapitalize(
+          pokemon.name
+        )}. Explora más Pokémon en nuestra Pokédex.`,
+        images: [
+          type === "shiny" ? sprites?.front_shiny : sprites?.front_default,
+        ],
+      },
+    };
+  } catch (error) {
+    return {
+      title: "Error al cargar Pokémon",
+      description:
+        "Hubo un problema al intentar cargar los datos del Pokémon. Por favor, intenta más tarde.",
+    };
+  }
+}
+
 export default async function Page({
   searchParams,
 }: {
