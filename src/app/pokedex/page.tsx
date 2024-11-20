@@ -71,7 +71,7 @@ export default async function Pokedex({
         </div>
         {pokemons !== undefined && (
           <PaginationControlled
-            totalPages={Math.ceil(parseInt(pokemons?.count ?? 20) / 20)}
+            totalPages={(parseInt(pokemons?.count ?? 20) / 20)}
           />
         )}
       </div>
