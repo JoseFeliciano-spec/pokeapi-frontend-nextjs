@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@mui/joy/Button";
+import Link from "next/link";
 import Avatar from "@mui/joy/Avatar";
 import AvatarGroup from "@mui/joy/AvatarGroup";
 import charizard from "@/assets/png/charizard.png";
@@ -25,13 +26,17 @@ export default function Home() {
           </AvatarGroup>
           <p className="text-gray-500">+100k usos al mes</p>
         </div>
-        <h1 className="text-center text-5xl font-bold">
+        <h1 className="text-center text-2xl md:text-5xl font-bold">
           Descubre y observa a tus Pokémon favoritos <br /> con esta increíble
           aplicación
         </h1>
         <div className="flex justify-center items-center flex-col my-7">
           <Button className="rounded-full" size="lg">
-            <p className="text-lg font-semibold p-[0.07rem]">Ir a la Pokedex</p>
+            <Link href={"/pokedex"}>
+              <p className="text-lg font-semibold p-[0.07rem]">
+                Ir a la Pokedex
+              </p>
+            </Link>
           </Button>
         </div>
         <div className="flex justify-center items-center">

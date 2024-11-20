@@ -3,7 +3,6 @@ import axios from "axios";
 export async function getAllPokemons(pageNo: any) {
   const pageConvert = parseInt(pageNo) === 1 ? 0 : parseInt(pageNo) * 20;
   const responseString = `${process.env.NEXT_PUBLIC_API_URL}/pokemon?offset=${pageConvert}&limit=20`;
-  console.log(responseString);
 
   const response = await axios.get(responseString);
 

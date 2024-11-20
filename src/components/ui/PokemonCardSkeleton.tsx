@@ -4,7 +4,7 @@ export const PokemonCardSkeleton = () => {
   return (
     <Card
       size="lg"
-      className="border-lg relative h-72 max-sm:w-10/12 max-md:mx-auto"
+      className="border-lg relative h-72 w-full max-md:mx-auto"
     >
       {/* Círculo de altura */}
       <div className="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2">

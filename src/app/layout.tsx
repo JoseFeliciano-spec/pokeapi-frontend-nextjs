@@ -3,10 +3,10 @@ import { Poppins } from "next/font/google";
 import Header from "@/components/ui/Header";
 import "./globals.css";
 
-// If loading a variable font, you don't need to specify the font weight
 const inter = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: "swap"
 });
 
 export const metadata: Metadata = {
