@@ -1,7 +1,7 @@
 import { typeColors } from "@/lib/typeColors";
 import { toCapitalize } from "@/lib/toCapitalize";
 export default function Chips({ item }: { item: any }) {
-  return item?.types?.map((item: any, index: number) => {
+  return item?.types?.map((item: any) => {
     const nameBackground = typeColors[item?.type?.name.toString()];
     const className = `w-16 h-8 p-2 rounded-full flex justify-center items-center`;
     return (

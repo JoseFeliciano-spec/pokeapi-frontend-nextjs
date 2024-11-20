@@ -10,7 +10,7 @@ export default function ListPokemon({ pokemons }: any) {
     pokemons !== undefined &&
     pokemons?.results?.map((item: any, key: number) => {
       return (
-        <Link href={`/pokemon?name=${item?.name}`}>
+        <Link href={`/pokemon?name=${item?.name}`} key={key}>
           <Card
             size="lg"
             key={key}
