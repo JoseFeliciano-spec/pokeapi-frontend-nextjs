@@ -212,7 +212,7 @@ export default async function Page({
               <Card className="flex justify-center items-center flex-col gap-y-2 shadow-md">
                 <p className="font-semibold">Peso</p>
                 <p className="font-semibold">
-                  {parseInt(pokemon?.weight) / 10} m
+                  {parseInt(pokemon?.weight) / 10} kg
                 </p>
               </Card>
             </div>
