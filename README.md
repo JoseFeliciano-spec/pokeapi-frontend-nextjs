@@ -76,7 +76,7 @@ Esto mejora la visibilidad del proyecto cuando se comparte en redes sociales o s
 ### Tecnologías Utilizadas
 - **Next.js**: Framework de React para renderizado del lado del servidor y aplicaciones web optimizadas.
 - **PokeAPI**: API para obtener datos detallados de Pokémon.
-- **CSS Modules**: Para estilizado modular y mantenible.
+- **Tailwind CSS y Material UI**: Para estilizado modular y mantenible.
 - **Vercel**: Para el despliegue y hosting.
 
 ---
@@ -89,18 +89,22 @@ Esto mejora la visibilidad del proyecto cuando se comparte en redes sociales o s
 
 ### Pasos
 1. Clona el repositorio:
-   '''
+   ```
    git clone https://github.com/JoseFeliciano-spec/pokeapi-frontend-nextjs.git
-   '''
+   ```
 2. Instala las dependencias:
-   '''
+   ```
    npm install
-   '''
-3. Ejecuta el proyecto en modo desarrollo:
-   '''
+   ```
+3. Crea un archivo .env con la siguiente variable en la raiz del proyecto
+   ```
+   NEXT_PUBLIC_API_URL = https://pokeapi.co/api/v2
+   ```
+4. Ejecuta el proyecto en modo desarrollo:
+   ```
    npm run dev
-   '''
-4. Abre el navegador en [http://localhost:3000](http://localhost:3000).
+   ```
+5. Abre el navegador en [http://localhost:3000](http://localhost:3000).
 
 ---
 
